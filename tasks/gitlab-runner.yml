@@ -27,7 +27,7 @@
   become: true
 
 - name: Configurate gitlab-runner
-  copy:
+  template:
     src: "{{ gitlab_runner_config_path }}"
     dest: /etc/gitlab-runner/config.toml
   notify: restart gitlab-runner
