@@ -12,7 +12,7 @@
     url: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh"
     dest: /tmp/gitlab-runner.script.deb.sh
     mode: 0700
-  when: gitlab_runner_runner.stat.isreg is defined
+  when: not gitlab_runner_repo.stat.exists
 
 - name: Install Gitlab runner repository
   command: bash /tmp/gitlab-runner.script.deb.sh
